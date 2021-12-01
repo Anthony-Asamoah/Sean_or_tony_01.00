@@ -1,4 +1,9 @@
 # a simple program to print the fibo sequence
+# and draw an x,y grapyh
+
+from typing import Sequence
+import matplotlib.pyplot as plt
+import numpy as np
 
 Sequence = [0, 1]
 x, y = 0, 1
@@ -17,4 +22,12 @@ while True:
 	if stop.lower() =='n':
 		break
 
-	
+
+ypoints = np.array(Sequence)
+
+plt.plot(ypoints, ".:r")
+
+plt.title("Fibo graph")
+plt.grid(axis= "y")
+
+plt.show()

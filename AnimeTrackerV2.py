@@ -1,7 +1,8 @@
 # simple python app to manage anime
 
-
+from datetime import datetime
 import os
+
 CurrEpp = 17
 file = 'Watch Baby Steps 2nd Season Episode ' + str(CurrEpp) + '.mp4'
 
@@ -13,13 +14,14 @@ os.chdir("C:\\Users\\dd\\Videos\\Baby Steps\\Season 2")
 # This shows the episode & show that is going to be played,
 # remember to update after each episode!!!
 
-# TODO : include code to display current time, right on this line
+time = datetime.now()
+print(time.strftime('%c'))
 
 print('\nCurrent Anime: Baby Steps',
 	  "\n-------------------------\n",
 	  'Current Episode: ',
 	  CurrEpp,
-	  "\n-------------------------\n" )
+	  "\n-------------------------\n")
 
 print('hit enter to continue')
 pause = input()
@@ -33,4 +35,4 @@ pause = input()
 os.execvp(file, )
 # ================================================
 
-CurrEpp += 1
+++CurrEpp
