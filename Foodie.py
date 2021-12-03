@@ -10,8 +10,8 @@ hour = time.hour  # variable to store the hour of day
 MainMenu = {
 	"Breakfast": ['Bread & Egg', 'Kooko', 'Waakye/Jollof'],
 	"Brunch": ['Waakye/Jollof', 'G)b3', 'Koliko'],
-	"Lunch": ['Waakye/Jollof', 'G)b3', 'Koliko', 'Banku', 'Fufu'],
-	"Dinner": ['Indomie', 'Fried Rice', 'Kenkey', 'Jollof/Waakye', 'Banku'],
+	"Lunch": ['Waakye/Jollof', 'G)b3', 'Koliko','Pork and Fries', 'Banku', 'Fufu'],
+	"Dinner": ['Indomie', 'Fried Rice', 'Assorted Fried Rice', 'Kenkey', 'Jollof/Waakye', 'Banku', 'Fries', ],
 	"Extra": ['Bread & Egg', 'Waakye/Jollof', 'Indomie']
 }
 
