@@ -18,3 +18,7 @@ final_text = '\n'.join(formatted_data)
 print(final_text)
 
 pyperclip.copy(final_text)
+
+f = open("C:\\users\\dd\\Desktop\\requirements.txt", 'w')
+f.write(final_text)
+f.close()
