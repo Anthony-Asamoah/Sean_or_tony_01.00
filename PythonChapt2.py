@@ -126,5 +126,65 @@ import re
 # mo = groupnumregex.search('Cell: 415-555-9999 Work: 212-555-0000')
 # print(f'Area code: {mo.group(1)}, Main number: {mo.group(2)}')
 # print(groupnumregex.findall('Cell: 415-555-9999 Work: 212-555-0000'))
-#
 
+# text = 'coconut grapes salad and chicken, i want to sleep but fire is on the kitchen. razors blades and scissors echo' \
+# 	   'as the witcher slaughters the butcher\'s butcher.'
+#
+# regex = re.compile(r'Sleep', re.IGNORECASE)
+# matchedobject = regex.search(text)
+#
+# print('Matched Objects: ', matchedobject.group())
+#
+# findall = regex.findall(text)
+# print('Findall:', findall)
+#
+# regex = re.compile(r'and (\w)\w+')
+#
+# matchedobject = regex.search(text)
+#
+# newtext = regex.sub(r'\1***', text)
+#
+# print(newtext)
+
+#
+# regex = re.compile(r'.*', re.IGNORECASE | re.VERBOSE | re.DOTALL)
+# try:
+# 	matchedobject = regex.search(text)
+#
+# 	print(matchedobject.group())
+#
+# except AttributeError:
+# 	print("Null")
+
+#! python3
+# phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+import pyperclip, re
+phoneRegex = re.compile(r'''(
+(\d{3}|\(\d{3}\))? # area code
+(\s|-|\.)? # separator
+(\d{3}) # first 3 digits
+(\s|-|\.) # separator
+(\d{4}) # last 4 digits
+(\s*(ext|x|ext.)\s*(\d{2,5}))? # extension
+)''', re.VERBOSE)
+
+# Create email regex.
+emailRegex = re.compile(r'''
+(\S+) # local part
+(@\S+)  # domainz
+''', re.VERBOSE)
+
+# Find matches in clipboard text.
+text = pyperclip.paste()
+
+matchedEmails = emailRegex.findall(text)
+
+# Ararange and format emails as a string
+emails = ""
+for i in range(len(matchedEmails)):
+	emails += "".join(matchedEmails[i]) + "\n"
+
+# Copy results to the clipboard.
+pyperclip.copy(emails)
+#print emails
+print(emails)
