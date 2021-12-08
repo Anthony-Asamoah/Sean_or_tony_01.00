@@ -2,6 +2,7 @@
 # phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
 
 import pyperclip, re
+from datetime import datetime
 
 #Phone Number Regex.
 phoneRegex = re.compile(r'''(
@@ -25,20 +26,36 @@ matchedEmails = emailRegex.findall(text)
 matchedPhoneNums = phoneRegex.findall(text)
 
 # Arrange and format emails and numbers as a string
+dateobject = datetime.now()
+date = dateobject.strftime('%c')
+
+All_Info = f'{date}'
+
 emails = ""
 for i in range(len(matchedEmails)):
 	emails += "".join(matchedEmails[i]) + "\n"
+if len(emails) < 1:
+	print("No emails found")
 
 phoneNumbers = ''
 for i in range(len(matchedPhoneNums)):
 	phoneNumbers += str(matchedPhoneNums[i][0]) + "\n"
+if len(phoneNumbers) < 1:
+	print("No Phone Numbers found")
 
-# join emails and phone numbers into one string
-All_Info = " Emails ".center(50, "=") + "\n" + emails \
-		   + "\n\n" + " Phone Numbers ".center(50, '=') + "\n" + phoneNumbers
+if len(phoneNumbers) or len(emails) > 0:
+	# join emails and phone numbers into one string
+	if len(phoneNumbers) > 0:
+		All_Info += "\n\n" + " Phone Numbers ".center(50, '=') + "\n" + phoneNumbers
 
-# Copy results to the clipboard.
-pyperclip.copy(All_Info)
+	if len(emails) > 0:
+		All_Info += "\n\n" + " Emails ".center(50, "=") + "\n" + emails
 
-#print emails
-print(All_Info)
+	# Copy results to the clipboard if numbers or emails were found.
+	pyperclip.copy(All_Info)
+
+	#print emails
+	print("\n", All_Info)
+
+else:
+	print('Nothing to copy; Operation aborted!')
