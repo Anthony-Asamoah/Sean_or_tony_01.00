@@ -221,3 +221,103 @@ import openpyxl
 # 	print('Nothing to copy; Operation aborted!')
 
 
+# ################ Working with Files ################
+
+# import os
+
+
+# myFiles = ['accounts.txt', 'details.csv', 'invite.docx']
+#
+# for i in myFiles:
+# 	print(os.path.join('C:\\users\\programs\\', i))
+
+# print(os.getcwd())
+#
+# os.chdir(r'C:\users\dd\desktop')
+# file = open("words.txt", "a")
+# file.write('Appended!')
+# file.close()
+
+# os.chdir(r'C:\users\dd\Desktop')
+# os.makedirs("Spam\Temp\Temp2")
+
+# print(os.path.abspath('.'))
+
+# dir = os.getcwd()  ############## variable holding directory
+
+# print(os.path.split(os.getcwd()))
+# print(dir.split(os.path.sep))
+
+# print(os.path.getsize(dir),'bytes')
+# print(os.listdir(dir))
+
+# Net_size = 0
+# for dirs in os.listdir(dir):
+# 	size = os.path.getsize(dirs)
+# 	Net_size += size
+# 	print(f'dir: {dirs}', f'{size}bytes')
+#
+# print(f'\nTotal Size: {Net_size}bytes')
+
+# print(f'is dir "{dir}": ', os.path.isdir(dir))
+# print(f'exists "{dir}": ', os.path.exists(dir))
+# print('is dir "random": ',  os.path.isdir('C:\\some_random_folder'))
+# print('is file "random": ', os.path.isfile(os.path.join(dir, "some_random_file")))
+# print(f'is file "{os.path.join(dir, "Temp3.py")}": ', os.path.isfile(os.path.join(dir, 'Temp3.py')))
+
+
+# import os
+# import shelve
+# import pprint
+#
+# dir = os.path.join('C:\\', 'users', 'dd', 'desktop')
+
+# file = open(os.path.join(dir, 'spam.txt'), 'w')
+# file.write('Hola')
+# file.close()
+
+# file = open(os.path.join(dir, 'spam.txt'), 'a')
+# file.write('\nNewlineeee')
+# file.close()
+#
+# file = open(os.path.join(dir, 'spam.txt'), 'r')
+# for i in file.readlines():
+# 	print(i)
+# file.close()
+
+# print(dir)
+
+##### using Shelve
+# spam = ['cainemvhzc','cvwkxam', 'fullclip', 'kangaroo', 'fullclip']
+
+# # creating a new shelf value (note:values are saved and retrieved just like dicts
+# file = shelve.open(os.path.join(dir, 'DB1', 'Shelve'))
+# file['spam'] = spam
+# file.close()
+
+# Reading from a shelve file
+# file = shelve.open(os.path.join(dir, 'DB1', 'shelve'))
+# print(list(file['spam']), '\n')
+#
+# for i in range(len(file['spam'])):
+# 	print(file['spam'][i])
+#
+# file.close()
+
+# # using keys() & values() & items(), just like with a dict/hashmap
+# file = shelve.open(os.path.join(dir, 'DB1', 'shelve'))
+# print('Using items(): ',list(file.items()))
+# print('Using Keys: ', list(file.keys()))
+# print('Using Values: ', list(file.values()))
+# file.close()
+
+# creating a .py file that can be later imported as a module
+# spam = [dict(one='koko', two='tombrown', three='oblayoo'), dict(one='koose', two='buffloaf', three='bread')]
+# formatted_spam = 'spam = ' + pprint.pformat(spam)
+# file = open(os.path.join(dir, 'spam.py'),'w')
+# file.write(formatted_spam)
+# file.close()
+
+# file = open(os.path.join(dir, 'spam.py'), 'r')
+# print(file.read())
+# file.close()
