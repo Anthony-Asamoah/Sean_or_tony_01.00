@@ -321,3 +321,75 @@ import openpyxl
 # file = open(os.path.join(dir, 'spam.py'), 'r')
 # print(file.read())
 # file.close()
+
+################################## Quiz Generator Project ###################
+#! python3
+# # randomQuizGenerator.py - Creates quizzes with questions and answers in
+# # random order, along with the answer key.
+#
+# import os
+# import random
+# import datetime
+# import pprint
+#
+# date = datetime.datetime.now()
+#
+# capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
+# 	'Arkansas': 'Little Rock', 'California': 'Sacramento', 'Colorado': 'Denver',
+# 	'Connecticut': 'Hartford', 'Delaware': 'Dover', 'Florida': 'Tallahassee',
+# 	'Georgia': 'Atlanta', 'Hawaii': 'Honolulu', 'Idaho': 'Boise',
+# 	'Illinois': 'Springfield', 'Indiana': 'Indianapolis', 'Iowa': 'Des Moines',
+# 	'Kansas': 'Topeka', 'Kentucky': 'Frankfort', 'Louisiana': 'Baton Rouge',
+# 	'Maine': 'Augusta', 'Maryland': 'Annapolis', 'Massachusetts': 'Boston',
+# 	'Michigan': 'Lansing', 'Minnesota': 'Saint Paul', 'Mississippi': 'Jackson',
+# 	'Missouri':	'Jefferson City', 'Montana': 'Helena', 'Nebraska': 'Lincoln',
+# 	'Nevada': 'Carson City', 'New Hampshire': 'Concord', 'New Jersey': 'Trenton',
+# 	'New Mexico': 'Santa Fe', 'New York': 'Albany', 'North Carolina': 'Raleigh',
+# 	'North Dakota': 'Bismarck', 'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',
+# 	'Oregon': 'Salem', 'Pennsylvania': 'Harrisburg', 'Rhode Island': 'Providence',
+# 	'South Carolina': 'Columbia', 'South Dakota': 'Pierre', 'Tennessee': 'Nashville',
+# 	'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont': 'Montpelier',
+# 	'Virginia': 'Richmond', 'Washington': 'Olympia',
+# 	'West Virginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
+#
+# dir = 'C:\\users\\dd\\desktop\\StateQuiz'
+#
+# # Generate 35 quiz files.
+# for quizNum in range(1, 36):
+# 	# TODO: Create the quiz and answer key files.
+# 	quizFile = open(os.path.join(dir, f'Quiz{quizNum}.txt'), 'w')
+# 	answerFile = open(os.path.join(dir, f'Quiz{quizNum}_Ans.txt'), 'w')
+#
+# 	# TODO: Write out the header for the quiz.
+# 	quizHeader = f'Name:\n\nPeriod:\n\nDate: {date.date()}\n\n{" " *20}State Capitals Quiz #{quizNum}\n\n'
+# 	ansHeader = f'State Capitals Quiz #{quizNum}\nDate: {date.date()}\n\n{" " * 20}Answers;\n\n'
+# 	quizFile.write(quizHeader)
+# 	answerFile.write(ansHeader)
+#
+# 	# TODO: Shuffle the order of the states.
+# 	listOfStates = list(capitals.keys())
+# 	random.shuffle(listOfStates)
+#
+# 	# TODO: Loop through all 50 states, making a question for each.
+# 	for question in range(50):
+# 		rightAns = capitals[listOfStates[question]]
+# 		wrongAns = list(capitals.values())
+# 		del wrongAns[wrongAns.index(rightAns)]
+# 		wrongAns = random.sample(wrongAns, 3)
+# 		wrongAns.append(str(rightAns))
+# 		ansOpt = wrongAns
+# 		random.shuffle(ansOpt)
+#
+# 		# TODO: Write the question and answer options to the quiz file.
+# 		questionSentence = f'Q{question + 1}. What is the Capital of {listOfStates[question]}?\n'
+# 		possibleAns = ""
+# 		for i in range(4):
+# 			possibleAns += f'{"ABCD"[i]}. {ansOpt[i]}\n'
+# 		finalSentence = questionSentence + possibleAns + "\n"
+# 		quizFile.write(finalSentence)
+#
+# 		# TODO: Write the answer key to a file.
+# 		Answers = f'Q{question + 1}: {"ABCD"[ansOpt.index(rightAns)]}\n'
+# 		answerFile.write(Answers)
+# 	quizFile.close()
+# 	answerFile.close()
