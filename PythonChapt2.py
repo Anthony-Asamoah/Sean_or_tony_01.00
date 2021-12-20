@@ -1,6 +1,6 @@
-import re
-import os
-import openpyxl
+# import re
+# import os
+# import openpyxl
 
 # Pattern Matching without REGEX
 
@@ -322,7 +322,7 @@ import openpyxl
 # print(file.read())
 # file.close()
 
-################################## Quiz Generator Project ###################
+# ################################## Quiz Generator Project ##################################
 #! python3
 # # randomQuizGenerator.py - Creates quizzes with questions and answers in
 # # random order, along with the answer key.
@@ -393,3 +393,25 @@ import openpyxl
 # 		answerFile.write(Answers)
 # 	quizFile.close()
 # 	answerFile.close()
+
+#! python3
+# mcb.pyw - Saves and loads pieces of text to the clipboard.
+# Usage: py.exe mcb.pyw save <keyword> - Saves clipboard to keyword.
+# py.exe mcb.pyw <keyword> - Loads keyword to clipboard.
+# py.exe mcb.pyw list - Loads all keywords to clipboard.
+
+# import shelve, pyperclip, sys, os
+#
+# dir = 'C\\users\\dd\\desktop\\mcbshelf'
+# mcbShelf = shelve.open('mcb')
+
+# if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+# 	mcbShelf[sys.argv[2]] = pyperclip.paste()
+# elif len(sys.argv) == 2:
+
+# 	if sys.argv[1].lower() == 'list':
+# 		pyperclip.copy(str(list(mcbShelf.keys())))
+# 	elif sys.argv[1] in mcbShelf:
+# 		pyperclip.copy(mcbShelf[sys.argv[1]])
+#
+# mcbShelf.close()
