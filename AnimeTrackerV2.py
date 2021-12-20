@@ -1,38 +1,37 @@
 # simple python app to manage anime
 
-from datetime import datetime
 import os
+import re
+import subprocess
+import shelve
 
-CurrEpp = 17
-file = 'Watch Baby Steps 2nd Season Episode ' + str(CurrEpp) + '.mp4'
+# todo: get a list of episodes
+file = shelve.open("C:/users/dd/Documents/AnimeTracker/counter")
+# counter = 0
+# file["counter"] = counter
+counter = file['counter']
+player = r"E:\Program Files (x86)\VideoLAN\VLC\vlc.exe"
+Directory = r"C:\Users\dd\Downloads\Video\Haikyuu S1"
+Episode_list = os.listdir(Directory)
 
-# Location of the anime to be viewed must be updated after each season!
-# ----------------------------------------------------
-os.chdir("C:\\Users\\dd\\Videos\\Baby Steps\\Season 2")
-# ----------------------------------------------------
+# todo: sort the list of episodes
+episode_num = re.compile(r"\s\d+")
+for i in range(len(Episode_list)):
+	Episode_list[i] = episode_num.sub((" " + str(i)), Episode_list[i])
 
-# This shows the episode & show that is going to be played,
-# remember to update after each episode!!!
+Current_episode = Episode_list[counter]
+episode_path = os.path.join(Directory, Current_episode)
 
-time = datetime.now()
-print(time.strftime('%c'))
+# todo: play anime
+play = subprocess.Popen([player, episode_path])
 
-print('\nCurrent Anime: Baby Steps',
-	  "\n-------------------------\n",
-	  'Current Episode: ',
-	  CurrEpp,
-	  "\n-------------------------\n")
+# todo: update episode in db
+# counter += 1
+# file['counter'] = counter
+# todo: update anime dir after season is over
 
-print('hit enter to continue')
-pause = input()
-# !!!!!!!!!!Next Episode:  !!!!!!!!!!!!!!!!!
 
-# The launch function of this program, also remember to update!!!!!!
-# TODO : include code to launch the anime directory
-# TODO : include code to launch the anime tracker in vs code or any text editor.
-# @notepad.exe .\\Anime_Tracker.bat %
-# ================================================
-os.execvp(file, )
-# ================================================
 
-++CurrEpp
+print(f"\nPlaying #{counter}: {Current_episode}")
+
+file.close()
