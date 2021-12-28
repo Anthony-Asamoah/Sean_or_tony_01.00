@@ -5,6 +5,7 @@ import pprint
 import re
 import string
 
+found_as_string = " "
 
 def StartRDB():
 	def rhymeValidator():
@@ -39,12 +40,8 @@ def StartRDB():
 		found = set(found)
 		found = sorted(found)
 		count = 0
-		found_as_string = " "
-		if len(found) == 0:
-			print("\nNo matching rhymes found!")
-			found += "Null"
-
-		else:
+		global found_as_string
+		try:
 			found_as_string += '-'.center(30, '-') + "\n"
 			for words in found:
 				found_as_string += f'{words}\n'.capitalize()
@@ -54,7 +51,11 @@ def StartRDB():
 			print(f"{count} words found with '{rhyme_string}'")
 
 			return count, rhyme_string, found_as_string
-
+		except TypeError:
+			print("\nNo matching rhymes found!")
+			found += "Null"
+			found_as_string += f'None for {rhyme_string}'
+			
 	rhyme = rhymeValidator()
 	save_path = 'C:/users/dd/desktop/'  # default Path
 	dictionary_path = "./words.txt"  # default Path for english dictionary
