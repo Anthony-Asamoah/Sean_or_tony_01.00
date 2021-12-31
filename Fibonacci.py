@@ -1,26 +1,26 @@
 # a simple program to print the fibo sequence
-# and draw an x,y grapyh
+# and draw an x,y graph
 
-from typing import Sequence
+
 import matplotlib.pyplot as plt
 import numpy as np
 
 
 def main():
-	Sequence = [0, 1]
+	Sequence = []
 	x, y = 0, 1
-
+	z = 0
 	while True:
 		for i in range(5):
+			Sequence.append(z)
+			z = x + y
 			x = y
-			y = x + y
-			Sequence.append(x)
-
+			y = z
 		print(f'Sequence: {Sequence}', end='')
 
 		stop = input(f'\nPrint five(5) more? Y/N: ')
 
-		if stop.lower() == 'n':
+		if 'n' in stop.lower():
 			break
 
 	ypoints = np.array(Sequence)
