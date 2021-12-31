@@ -1,4 +1,5 @@
 import time
+from playsound import playsound
 
 while True:
     start = input("\nStart Timer?\n reply with 'y' / 'n'\n\t->")
@@ -6,19 +7,39 @@ while True:
         if start == 'n':
             break
         else:
-            Mins = input("enter Minutes as integer: ")
-            secs = input("enter seconds as integer: ")
+            while True:
+                try:
+                    Mins = int(input("\nEnter Minutes as integer (Max = 100): "))
+                except ValueError:
+                    print("kindly provide integers only...")
+                    continue
+                if Mins not in range(100):
+                    print("Invalid input!")
+                    continue
+                else:
+                    break
 
-            total  = (int(Mins) * 60 )+ int(secs)
+            while True:
+                try:
+                    secs = int(input("Enter seconds as integer: "))
+                except ValueError:
+                    print("kindly provide integers only...")
+                    continue
+                if secs not in range(10000):
+                    print("Invalid input!")
+                    continue
+                else:
+                    break
 
-            print(f"\n\n Timer started for {total}secons")
+            total = (int(Mins) * 60) + int(secs)
+
+            print(f"\n\nTimer started for {total} seconds")
             time.sleep(total)
-            print("Timer up!\n\n")
-
+            print("\nTime up!\n\n")
+            playsound('./audio.mp3')
             continue
     else:
         print("\nInvalid Input!\n")    
     
 print("\nLater then...")
 
-# todo: add a ringtone/beep/alert
