@@ -12,8 +12,9 @@ MainMenu = {
 	"Brunch": ['Waakye/Jollof', 'G)b3', 'Koliko'],
 	"Lunch": ['Waakye/Jollof', 'G)b3', 'Koliko','Pork and Fries', 'Banku', 'Fufu'],
 	"Dinner": ['Indomie', 'Fried Rice', 'Assorted Fried Rice', 'Kenkey', 'Jollof/Waakye', 'Banku', 'Fries', ],
-	"Extra": ['Bread & Egg', 'Waakye/Jollof', 'Indomie', 'Tea']
+	"Extra": ['Bread & Egg', 'Indomie', 'Tea'],
 }
+Fancy =['Pizza', 'Burgers', 'Ice Cream', 'Pie', 'Spring Rolls', 'Pastries', 'Cake']
 
 # List to store meals only available depending on the time of day
 available = []
@@ -44,7 +45,7 @@ while suggestion2 == suggestion1:
 	suggestion2 = available[randint(0, len(available) - 1)]
 
 # variable to hold the output statement, this is just for output formatting purposes
-sentence = f'  It is time for {mealtime.lower()}. Thus, i suggest {suggestion1.capitalize()}, or some {suggestion2.capitalize()}.'
+sentence = f'It\'s time for {mealtime.lower()}. Thus, i suggest {suggestion1.capitalize()}, or some {suggestion2.capitalize()}.\nOtherwise; {Fancy[randint(0, len(Fancy) - 1)]}'
 
 # Give output
 print(
