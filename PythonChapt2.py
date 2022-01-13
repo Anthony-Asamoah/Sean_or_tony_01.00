@@ -263,7 +263,7 @@
 # print(f'exists "{dir}": ', os.path.exists(dir))
 # print('is dir "random": ',  os.path.isdir('C:\\some_random_folder'))
 # print('is file "random": ', os.path.isfile(os.path.join(dir, "some_random_file")))
-# print(f'is file "{os.path.join(dir, "Temp3.py")}": ', os.path.isfile(os.path.join(dir, 'Temp3.py')))
+# print(f'is file "{os.path.join(dir, "Project Euler.py")}": ', os.path.isfile(os.path.join(dir, 'Project Euler.py')))
 
 
 # import os
@@ -314,11 +314,11 @@
 # creating a .py file that can be later imported as a module
 # spam = [dict(one='koko', two='tombrown', three='oblayoo'), dict(one='koose', two='buffloaf', three='bread')]
 # formatted_spam = 'spam = ' + pprint.pformat(spam)
-# file = open(os.path.join(dir, 'spam.py'),'w')
+# file = open(os.path.join(dir, 'Temp1.py'),'w')
 # file.write(formatted_spam)
 # file.close()
 
-# file = open(os.path.join(dir, 'spam.py'), 'r')
+# file = open(os.path.join(dir, 'Temp1.py'), 'r')
 # print(file.read())
 # file.close()
 
@@ -488,3 +488,6 @@
 # 		print('You got it!')
 # 	else:
 # 		print('Nope. You are really bad at this game.')
+
+
+
