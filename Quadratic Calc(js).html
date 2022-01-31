@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <style>
+        body {
+            background-color:black;
+            color:white;
+        }
+        .main {
+            text-align:center;
+            margin: 100px auto;
+            border: 1px solid gray;
+            border-radius:10px;
+            min-width: 500px;
+            width:25%;
+            padding:5%;
+        }
+        .answers {
+            text-align: center;
+            background-color: white;
+            color:black;
+            border-radius:3px;
+            padding:10px;
+            min-width:300px;
+            width: 20%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class='main'>
+        <h1 id="header">
+            Quadratic Calculator
+        </h1>
+        <div class="form was-validated">
+            <form class='input'>
+                <div>
+                    <div class="form-group">
+                        <label for='x'>Coefficient of x^2</label>
+                        <input class='form-control' id='var_x' type="number" name='x'  placeholder='x'>
+                    </div>
+                    <div class="form-group">
+                        <label for='y'>Coefficient of x</label>
+                        <input class='form-control' id='var_y' type="number" name='y'  placeholder='y'>
+                    </div>
+                    <div class="form-group">
+                        <label for='z'>Constant</label>
+                        <input class='form-control' id='var_z' type="number" name='z'  placeholder='z'>
+                    </div>
+                        <button class='btn btn-primary' type="button" onclick="run_quad()">Calculate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="answers">
+            <h4 id="value">Value = 0</h4>
+        </div>
+    </div>
+</body>
+<script>
+
+let statement = 'Kindly Input the following variables...';
+let header_change = function(new_header) {
+    let item = document.getElementById('header');
+    item.innerHTML = new_header;
+    console.log('header changed! to ' + new_header);
+}
+function val_change(new_val) {
+    var item = document.getElementById('value');
+    console.log(item.innerHTML);
+    item.innerHTML = `Value(s) = ${new_val[0]} and ${new_val[1]}`;
+    console.log(`value changed! to ${new_val}`);
+}
+function quadratic(a,b,c) {
+    let positive_ans = ((-b) + ((b**2)-(4*a*c)**-1) /2*c);
+    let negative_ans = ((-b) - ((b**2)-(4*a*c)**-1) /2*c);
+    return [positive_ans, negative_ans];
+}
+
+function run_quad() {
+    let var_x = document.getElementById('var_x').value;
+    let var_y = document.getElementById('var_y').value;
+    let var_z= document.getElementById('var_z').value;
+    let item = document.getElementById('value')
+
+    if (var_x == 0 || var_y == 0 || var_z == 0){
+        item.innerHTML = 'Provide an integer other than \'0\''
+    }
+    else if (var_x && var_y && var_z) {
+        let ans = quadratic(var_x, var_y, var_z);
+        val_change(ans);
+        console.log('Success!');
+    }
+    else {
+        item.innerHTML = 'Provide all values as integers and retry';
+    }
+}
+
+</script>
+</html>
