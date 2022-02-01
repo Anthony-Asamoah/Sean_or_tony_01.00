@@ -1,7 +1,6 @@
 #! python
 
 import os
-import pprint
 import re
 import string
 
@@ -58,7 +57,7 @@ def StartRDB():
 			
 	rhyme = rhymeValidator()
 	save_path = 'C:/users/dd/desktop/'  # default Path
-	dictionary_path = "./words.txt"  # default Path for english dictionary
+	dictionary_path = "Words.txt"  # default Path for english dictionary
 	count, rhyme_string, found_as_string = find_rhymes(dictionary_path, rhyme)
 
 	return count, rhyme_string, found_as_string, save_path
