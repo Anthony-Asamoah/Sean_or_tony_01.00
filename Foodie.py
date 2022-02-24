@@ -8,10 +8,10 @@ hour = time.hour  # variable to store the hour of day
 
 # Dictionary to hold meals and their times
 MainMenu = {
-	"Breakfast": ['Bread & Egg', 'Kooko', 'Waakye/Jollof'],
-	"Brunch": ['Waakye/Jollof', 'G)b3', 'Koliko'],
-	"Lunch": ['Waakye/Jollof', 'G)b3', 'Koliko','Pork and Fries', 'Banku', 'Fufu'],
-	"Dinner": ['Indomie', 'Fried Rice', 'Assorted Fried Rice', 'Kenkey', 'Jollof/Waakye', 'Banku', 'Fries', ],
+	"Breakfast": ['Bread & Egg', 'Kooko', 'Waakye','Jollof','Waakye & Jollof'],
+	"Brunch": ['Waakye','Jollof', 'G)b3', 'Koliko','Waakye & Jollof'],
+	"Lunch": ['Waakye','Jollof','Waakye & Jollof', 'G)b3', 'Koliko','Pork and Fries', 'Banku', 'Fufu'],
+	"Dinner": ['Indomie', 'Fried Rice', 'Assorted Fried Rice', 'Kenkey', 'Jollof','Waakye/Jollof', 'Waakye', 'Banku', 'Fries', ],
 	"Extra": ['Bread & Egg', 'Indomie', 'Tea'],
 }
 Fancy =['Pizza', 'Burgers', 'Ice Cream', 'Pie', 'Spring Rolls', 'Pastries', 'Cake']
