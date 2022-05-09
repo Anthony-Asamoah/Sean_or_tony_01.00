@@ -1,10 +1,9 @@
-# a program to chose what food to eat based on the time of day
+# A simple program to select a meal based on the time of day
 
 from random import randint
 from datetime import datetime
 
-time = datetime.now()  # Create a datetime object to get the hour of day
-hour = time.hour  # variable to store the hour of day
+hour = datetime.now().hour  # Create a datetime object to get the hour of day
 
 # Dictionary to hold meals and their times
 MainMenu = {
@@ -16,7 +15,7 @@ MainMenu = {
 }
 Fancy =['Pizza', 'Burgers', 'Ice Cream', 'Pie', 'Spring Rolls', 'Pastries', 'Cake']
 
-# List to store meals only available depending on the time of day
+# List to get meals per time of day
 available = []
 if hour in range(6, 10):
 	mealtime = 'Breakfast'
@@ -44,7 +43,7 @@ suggestion2 = available[randint(0, len(available) - 1)]
 while suggestion2 == suggestion1:
 	suggestion2 = available[randint(0, len(available) - 1)]
 
-# variable to hold the output statement, this is just for output formatting purposes
+# variable to hold the output statement, this is just for a custon pretty printing
 sentence = f'It\'s time for {mealtime.lower()}. Thus, i suggest {suggestion1.capitalize()}, or some {suggestion2.capitalize()}.\nOtherwise; {Fancy[randint(0, len(Fancy) - 1)]}'
 
 # Give output

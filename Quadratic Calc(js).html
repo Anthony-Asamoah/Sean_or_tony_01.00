@@ -17,22 +17,39 @@
         }
         .main {
             text-align:center;
-            margin: 100px auto;
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
             border: 1px solid gray;
             border-radius:10px;
             min-width: 500px;
             width:25%;
             padding:5%;
         }
+        .main input{
+            font-family: monospace;
+        }
+        .main .btn {
+            font-family: monospace;
+        }
         .answers {
             text-align: center;
+            font-family: monospace;
             background-color: white;
-            color:black;
+            color:white;
+            background-color:gray;
             border-radius:3px;
-            padding:10px;
+            padding:5px;
             min-width:300px;
             width: 20%;
-            margin: auto;
+            position:absolute;
+            top:80%;
+            left:50%;
+            transform: translate(-50%, -50%)
+        }
+        .answers h4 {
+            font-weight: bold;
         }
     </style>
 </head>
